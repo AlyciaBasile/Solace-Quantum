@@ -1,0 +1,20 @@
+name: Automated Deployment
+
+__doc__
+"This workflow will automate the deployment process for Solace-Quantum."
+
+on workflow_dispatch:
+  type: workflow_dispatch
+
+permissions:
+  read-all: true
+
+
+jobs:
+
+  - name: Automate Runtime
+      uses: ubuntu-latest
+      run: "python3 scripts.deploy.py"
+
+  - name: Verify Deployment
+      run: python3 scripts.verify_deploy.ou
